@@ -13,7 +13,7 @@ if exist ".venv-1\Scripts\python.exe" (
 
 set "MYSQL_DATABASE=sportsphere_db"
 set "MYSQL_USER=root"
-set "MYSQL_PASSWORD=persianbhatti"
+set "MYSQL_PASSWORD=8uupvpR8%%"
 set "MYSQL_HOST=127.0.0.1"
 set "MYSQL_PORT=3306"
 

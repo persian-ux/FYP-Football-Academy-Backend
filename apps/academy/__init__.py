@@ -1,0 +1,1 @@
+"""Academy-level domain models."""

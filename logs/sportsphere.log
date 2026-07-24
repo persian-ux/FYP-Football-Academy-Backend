@@ -1,0 +1,37 @@
+INFO 2026-07-24 20:15:03,176 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-24 20:15:08,883 django.server "GET / HTTP/1.1" 200 50
+WARNING 2026-07-24 22:07:29,655 django.request Not Found: /api/auth/register/
+WARNING 2026-07-24 22:07:29,657 django.server "GET /api/auth/register/ HTTP/1.1" 404 5142
+INFO 2026-07-24 22:08:14,990 django.server "GET / HTTP/1.1" 200 50
+WARNING 2026-07-24 22:15:23,607 django.request Not Found: /api/auth/register/
+WARNING 2026-07-24 22:15:23,608 django.server "POST /api/auth/register/ HTTP/1.1" 404 5143
+WARNING 2026-07-24 22:15:58,295 django.request Not Found: /api/auth/register/
+WARNING 2026-07-24 22:15:58,298 django.server "GET /api/auth/register/ HTTP/1.1" 404 5142
+INFO 2026-07-24 22:20:02,906 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-24 22:20:09,026 django.server "GET / HTTP/1.1" 200 50
+INFO 2026-07-24 22:22:53,623 django.utils.autoreload C:\Users\zainu\Desktop\FYP\FYP-Football-Academy-Backend\config\urls.py changed, reloading.
+INFO 2026-07-24 22:22:55,128 django.utils.autoreload Watching for file changes with StatReloader
+ERROR 2026-07-24 22:23:09,368 django.security.DisallowedHost Invalid HTTP_HOST header: 'testserver'. You may need to add 'testserver' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\zainu\Desktop\FYP\FYP-Football-Academy-Backend\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\zainu\Desktop\FYP\FYP-Football-Academy-Backend\.venv\Lib\site-packages\django\utils\deprecation.py", line 308, in __call__
+    response = self.process_request(request)
+  File "C:\Users\zainu\Desktop\FYP\FYP-Football-Academy-Backend\.venv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "C:\Users\zainu\Desktop\FYP\FYP-Football-Academy-Backend\.venv\Lib\site-packages\django\http\request.py", line 206, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'testserver'. You may need to add 'testserver' to ALLOWED_HOSTS.
+WARNING 2026-07-24 22:23:24,997 django.request Method Not Allowed: /api/auth/register/
+INFO 2026-07-24 22:23:38,344 django.utils.autoreload C:\Users\zainu\Desktop\FYP\FYP-Football-Academy-Backend\config\urls.py changed, reloading.
+INFO 2026-07-24 22:23:39,433 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-24 22:24:34,359 django.server "POST /api/auth/register/ HTTP/1.1" 201 131
+WARNING 2026-07-24 22:26:42,587 django.request Method Not Allowed: /api/auth/login/
+WARNING 2026-07-24 22:26:42,588 django.server "GET /api/auth/login/ HTTP/1.1" 405 40
+INFO 2026-07-24 22:28:39,243 django.server "POST /api/auth/login/ HTTP/1.1" 200 744
+INFO 2026-07-24 22:37:08,307 django.utils.autoreload C:\Users\zainu\Desktop\FYP\FYP-Football-Academy-Backend\apps\accounts\urls.py changed, reloading.
+INFO 2026-07-24 22:37:09,889 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-24 22:37:34,981 django.utils.autoreload C:\Users\zainu\Desktop\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\responses.py changed, reloading.
+INFO 2026-07-24 22:37:36,208 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-24 22:38:21,411 django.server "POST /api/auth/register/ HTTP/1.1" 201 132
+INFO 2026-07-24 22:38:31,972 django.server "POST /api/auth/login/ HTTP/1.1" 200 745

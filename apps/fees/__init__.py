@@ -1,0 +1,1 @@
+"""Fee management domain."""

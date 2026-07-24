@@ -1,3 +1,8 @@
 Django==6.0.6
 watchdog==4.0.1
 mysql-connector-python
+djangorestframework
+django-cors-headers
+djangorestframework-simplejwt
+Pillow
+python-dotenv

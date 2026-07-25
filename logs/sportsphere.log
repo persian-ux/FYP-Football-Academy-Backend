@@ -195,3 +195,55 @@ WARNING 2026-07-25 10:41:58,192 django.request Bad Request: /api/auth/register/
 WARNING 2026-07-25 10:41:58,194 django.server "POST /api/auth/register/ HTTP/1.1" 400 45
 WARNING 2026-07-25 10:46:52,978 django.request Bad Request: /api/auth/login/
 WARNING 2026-07-25 10:46:52,979 django.server "POST /api/auth/login/ HTTP/1.1" 400 51
+INFO 2026-07-25 15:54:18,192 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 16:00:10,456 django.server "OPTIONS /api/auth/register/ HTTP/1.1" 200 0
+WARNING 2026-07-25 16:00:10,699 django.request Bad Request: /api/auth/register/
+WARNING 2026-07-25 16:00:10,701 django.server "POST /api/auth/register/ HTTP/1.1" 400 114
+INFO 2026-07-25 16:07:50,764 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\serializers.py changed, reloading.
+INFO 2026-07-25 16:07:52,640 django.utils.autoreload Watching for file changes with StatReloader
+WARNING 2026-07-25 16:11:59,866 django.request Bad Request: /api/auth/register/
+WARNING 2026-07-25 16:11:59,867 django.server "POST /api/auth/register/ HTTP/1.1" 400 114
+INFO 2026-07-25 16:19:54,948 django.server "POST /api/auth/register/ HTTP/1.1" 201 758
+WARNING 2026-07-25 16:20:58,158 django.request Bad Request: /api/auth/register/
+WARNING 2026-07-25 16:20:58,159 django.server "POST /api/auth/register/ HTTP/1.1" 400 59
+WARNING 2026-07-25 16:21:00,206 django.request Bad Request: /api/auth/register/
+WARNING 2026-07-25 16:21:00,207 django.server "POST /api/auth/register/ HTTP/1.1" 400 59
+WARNING 2026-07-25 16:21:23,682 django.request Bad Request: /api/auth/register/
+WARNING 2026-07-25 16:21:23,683 django.server "POST /api/auth/register/ HTTP/1.1" 400 59
+WARNING 2026-07-25 16:21:45,606 django.request Bad Request: /api/auth/register/
+WARNING 2026-07-25 16:21:45,607 django.server "POST /api/auth/register/ HTTP/1.1" 400 59
+WARNING 2026-07-25 16:22:20,454 django.request Bad Request: /api/auth/register/
+WARNING 2026-07-25 16:22:20,455 django.server "POST /api/auth/register/ HTTP/1.1" 400 76
+WARNING 2026-07-25 16:22:22,493 django.request Bad Request: /api/auth/register/
+WARNING 2026-07-25 16:22:22,493 django.server "POST /api/auth/register/ HTTP/1.1" 400 89
+WARNING 2026-07-25 16:22:24,550 django.request Bad Request: /api/auth/register/
+WARNING 2026-07-25 16:22:24,550 django.server "POST /api/auth/register/ HTTP/1.1" 400 50
+WARNING 2026-07-25 16:22:26,595 django.request Bad Request: /api/auth/register/
+WARNING 2026-07-25 16:22:26,596 django.server "POST /api/auth/register/ HTTP/1.1" 400 50
+WARNING 2026-07-25 16:22:28,650 django.request Bad Request: /api/auth/register/
+WARNING 2026-07-25 16:22:28,651 django.server "POST /api/auth/register/ HTTP/1.1" 400 50
+WARNING 2026-07-25 16:22:30,698 django.request Bad Request: /api/auth/register/
+WARNING 2026-07-25 16:22:30,699 django.server "POST /api/auth/register/ HTTP/1.1" 400 89
+WARNING 2026-07-25 16:22:32,735 django.request Bad Request: /api/auth/register/
+WARNING 2026-07-25 16:22:32,736 django.server "POST /api/auth/register/ HTTP/1.1" 400 37
+INFO 2026-07-25 16:22:58,628 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\serializers.py changed, reloading.
+INFO 2026-07-25 16:23:00,470 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 16:23:54,554 django.server "POST /api/auth/register/ HTTP/1.1" 201 783
+WARNING 2026-07-25 16:25:35,040 django.request Bad Request: /api/auth/register/
+WARNING 2026-07-25 16:25:35,041 django.server "POST /api/auth/register/ HTTP/1.1" 400 114
+WARNING 2026-07-25 16:28:20,847 django.request Bad Request: /api/auth/register/
+WARNING 2026-07-25 16:28:20,848 django.server "POST /api/auth/register/ HTTP/1.1" 400 50
+WARNING 2026-07-25 16:28:22,909 django.request Bad Request: /api/auth/register/
+WARNING 2026-07-25 16:28:22,912 django.server "POST /api/auth/register/ HTTP/1.1" 400 50
+WARNING 2026-07-25 16:28:24,983 django.request Bad Request: /api/auth/register/
+WARNING 2026-07-25 16:28:24,984 django.server "POST /api/auth/register/ HTTP/1.1" 400 50
+WARNING 2026-07-25 16:28:27,026 django.request Bad Request: /api/auth/register/
+WARNING 2026-07-25 16:28:27,029 django.server "POST /api/auth/register/ HTTP/1.1" 400 37
+WARNING 2026-07-25 16:28:29,092 django.request Bad Request: /api/auth/register/
+WARNING 2026-07-25 16:28:29,094 django.server "POST /api/auth/register/ HTTP/1.1" 400 50
+WARNING 2026-07-25 16:28:31,166 django.request Bad Request: /api/auth/register/
+WARNING 2026-07-25 16:28:31,169 django.server "POST /api/auth/register/ HTTP/1.1" 400 50
+INFO 2026-07-25 16:29:36,069 django.server "POST /api/auth/register/ HTTP/1.1" 201 774
+INFO 2026-07-25 16:29:43,445 django.server "POST /api/auth/register/ HTTP/1.1" 201 791
+INFO 2026-07-25 16:31:12,341 django.server "OPTIONS /api/auth/login/ HTTP/1.1" 200 0
+INFO 2026-07-25 16:31:14,785 django.server "POST /api/auth/login/ HTTP/1.1" 200 751

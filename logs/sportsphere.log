@@ -231,3 +231,19 @@ INFO 2026-07-25 16:23:00,470 django.utils.autoreload Watching for file changes w
 INFO 2026-07-25 16:23:54,554 django.server "POST /api/auth/register/ HTTP/1.1" 201 783
 WARNING 2026-07-25 16:25:35,040 django.request Bad Request: /api/auth/register/
 WARNING 2026-07-25 16:25:35,041 django.server "POST /api/auth/register/ HTTP/1.1" 400 114
+WARNING 2026-07-25 16:28:20,847 django.request Bad Request: /api/auth/register/
+WARNING 2026-07-25 16:28:20,848 django.server "POST /api/auth/register/ HTTP/1.1" 400 50
+WARNING 2026-07-25 16:28:22,909 django.request Bad Request: /api/auth/register/
+WARNING 2026-07-25 16:28:22,912 django.server "POST /api/auth/register/ HTTP/1.1" 400 50
+WARNING 2026-07-25 16:28:24,983 django.request Bad Request: /api/auth/register/
+WARNING 2026-07-25 16:28:24,984 django.server "POST /api/auth/register/ HTTP/1.1" 400 50
+WARNING 2026-07-25 16:28:27,026 django.request Bad Request: /api/auth/register/
+WARNING 2026-07-25 16:28:27,029 django.server "POST /api/auth/register/ HTTP/1.1" 400 37
+WARNING 2026-07-25 16:28:29,092 django.request Bad Request: /api/auth/register/
+WARNING 2026-07-25 16:28:29,094 django.server "POST /api/auth/register/ HTTP/1.1" 400 50
+WARNING 2026-07-25 16:28:31,166 django.request Bad Request: /api/auth/register/
+WARNING 2026-07-25 16:28:31,169 django.server "POST /api/auth/register/ HTTP/1.1" 400 50
+INFO 2026-07-25 16:29:36,069 django.server "POST /api/auth/register/ HTTP/1.1" 201 774
+INFO 2026-07-25 16:29:43,445 django.server "POST /api/auth/register/ HTTP/1.1" 201 791
+INFO 2026-07-25 16:31:12,341 django.server "OPTIONS /api/auth/login/ HTTP/1.1" 200 0
+INFO 2026-07-25 16:31:14,785 django.server "POST /api/auth/login/ HTTP/1.1" 200 751

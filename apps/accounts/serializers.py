@@ -18,23 +18,38 @@ class BaseResponseSerializer(serializers.Serializer):
 
 class RegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True, required=True)
-    password2 = serializers.CharField(write_only=True, required=True)
+    password2 = serializers.CharField(write_only=True, required=False, allow_blank=True)
+    confirm_password = serializers.CharField(write_only=True, required=False, allow_blank=True)
+    password_confirm = serializers.CharField(write_only=True, required=False, allow_blank=True)
+    confirmPassword = serializers.CharField(write_only=True, required=False, allow_blank=True)
     first_name = serializers.CharField(required=False, allow_blank=True, max_length=150)
     last_name = serializers.CharField(required=False, allow_blank=True, max_length=150)
+    firstName = serializers.CharField(required=False, allow_blank=True, max_length=150)
+    lastName = serializers.CharField(required=False, allow_blank=True, max_length=150)
+    phoneNumber = serializers.CharField(required=False, allow_blank=True, max_length=20)
 
     class Meta:
         model = User
-        fields = ["email", "password", "password2", "first_name", "last_name", "phone", "role"]
+        fields = [
+            "email", "password",
+            "password2", "confirm_password", "password_confirm", "confirmPassword",
+            "first_name", "last_name", "firstName", "lastName",
+            "phone", "phoneNumber", "role",
+        ]
 
     def validate(self, attrs):
         email = validate_email_address(attrs.get("email", ""))
-        phone = validate_phone_number(attrs.get("phone", "")) if attrs.get("phone") else None
+        phone = validate_phone_number(attrs.get("phone", "")) if attrs.get("phone") or attrs.get("phoneNumber") else None
         role = validate_role(attrs.get("role", "player"))
         password = attrs.get("password")
-        password2 = attrs.get("password2")
 
-        if password != password2:
-            raise serializers.ValidationError({"password2": ["Passwords do not match."]})
+        # Support multiple field names for password confirmation:
+        # password2 (backend), confirm_password (common), password_confirm (alternative), confirmPassword (frontend camelCase)
+        confirm = attrs.get("confirm_password") or attrs.get("password_confirm") or attrs.get("password2") or attrs.get("confirmPassword")
+        if not confirm:
+            raise serializers.ValidationError({"confirm_password": ["Password confirmation is required."]})
+        if password != confirm:
+            raise serializers.ValidationError({"confirm_password": ["Passwords do not match."]})
 
         try:
             validate_password_strength(password)
@@ -44,11 +59,22 @@ class RegisterSerializer(serializers.ModelSerializer):
         attrs["email"] = email
         attrs["phone"] = phone
         attrs["role"] = role
+        # Map camelCase first/last names to snake_case
+        if not attrs.get("first_name") and attrs.get("firstName"):
+            attrs["first_name"] = attrs["firstName"]
+        if not attrs.get("last_name") and attrs.get("lastName"):
+            attrs["last_name"] = attrs["lastName"]
         return attrs
 
     def create(self, validated_data):
         password = validated_data.pop("password")
         validated_data.pop("password2", None)
+        validated_data.pop("confirm_password", None)
+        validated_data.pop("password_confirm", None)
+        validated_data.pop("confirmPassword", None)
+        validated_data.pop("firstName", None)
+        validated_data.pop("lastName", None)
+        validated_data.pop("phoneNumber", None)
         user = User.objects.create_user(
             email=validated_data["email"],
             password=password,

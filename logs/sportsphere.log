@@ -35,3 +35,8 @@ INFO 2026-07-24 22:37:34,981 django.utils.autoreload C:\Users\zainu\Desktop\FYP\
 INFO 2026-07-24 22:37:36,208 django.utils.autoreload Watching for file changes with StatReloader
 INFO 2026-07-24 22:38:21,411 django.server "POST /api/auth/register/ HTTP/1.1" 201 132
 INFO 2026-07-24 22:38:31,972 django.server "POST /api/auth/login/ HTTP/1.1" 200 745
+INFO 2026-07-25 09:57:22,153 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:04:35,178 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\config\settings.py changed, reloading.
+INFO 2026-07-25 10:04:36,024 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:06:43,746 django.server "GET / HTTP/1.1" 200 50
+INFO 2026-07-25 10:09:16,789 django.utils.autoreload Watching for file changes with StatReloader

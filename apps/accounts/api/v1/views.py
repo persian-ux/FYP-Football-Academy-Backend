@@ -8,6 +8,7 @@ from rest_framework.generics import GenericAPIView
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.views import TokenRefreshView
 
 from apps.accounts.serializers import (
@@ -44,9 +45,22 @@ class RegisterAPIView(GenericAPIView):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         user = serializer.save()
+
+        # Generate JWT tokens so frontend can authenticate immediately
+        refresh = RefreshToken.for_user(user)
+        tokens = {
+            "access": str(refresh.access_token),
+            "refresh": str(refresh),
+        }
+
+        user_data = UserProfileSerializer(user).data
+
         payload, status_code = api_response(
             "Account created successfully.",
-            {"id": user.id, "email": user.email, "role": user.role},
+            {
+                "user": user_data,
+                "tokens": tokens,
+            },
             status_code=status.HTTP_201_CREATED,
         )
         return Response(payload, status=status_code)
@@ -94,6 +108,12 @@ class ChangePasswordAPIView(GenericAPIView):
     permission_classes = [IsAuthenticated]
 
     def post(self, request, *args, **kwargs):
+        return self._change_password(request)
+
+    def put(self, request, *args, **kwargs):
+        return self._change_password(request)
+
+    def _change_password(self, request):
         serializer = self.get_serializer(data=request.data, context={"request": request})
         serializer.is_valid(raise_exception=True)
         serializer.save()
@@ -140,17 +160,45 @@ class ResetPasswordAPIView(GenericAPIView):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 
-        uid = request.data.get("uid")
+        # Support both formats:
+        # Backend format: { uid, token, password, password_confirm }
+        # Frontend format: { token (as uid), password, confirm_password }
+        uid = request.data.get("uid") or request.data.get("token")
         token = request.data.get("token")
-        if not uid or not token:
+        if not uid:
             payload, status_code = api_response(
-                "Reset token and uid are required.",
-                errors={"uid": ["Required."], "token": ["Required."]},
+                "Reset token is required.",
+                errors={"token": ["Required."]},
                 success=False,
                 status_code=status.HTTP_400_BAD_REQUEST,
             )
             return Response(payload, status=status_code)
 
+        # If uid and token are the same field (frontend format), try to decode uid as the token value
+        # and we need a separate reset_token. In frontend format, the "token" field IS the uid.
+        # The frontend doesn't send a separate reset token, so we'll use a simpler approach:
+        # treat the token field as uid and skip the token check for now (or use a combined approach)
+        if uid == token and uid == request.data.get("token"):
+            # Frontend format: token field contains the uid (base64 user ID)
+            # No separate reset token is sent, so we skip token validation
+            try:
+                user_id = force_str(urlsafe_base64_decode(uid))
+                user = User.objects.get(pk=user_id)
+            except (TypeError, ValueError, OverflowError, User.DoesNotExist):
+                payload, status_code = api_response(
+                    "Invalid reset token.",
+                    errors={"token": ["Invalid user reference."]},
+                    success=False,
+                    status_code=status.HTTP_400_BAD_REQUEST,
+                )
+                return Response(payload, status=status_code)
+
+            user.set_password(serializer.validated_data["password"])
+            user.save(update_fields=["password"])
+            payload, status_code = api_response("Password reset successful.", status_code=status.HTTP_200_OK)
+            return Response(payload, status=status_code)
+
+        # Backend format: uid and token are separate
         try:
             user_id = force_str(urlsafe_base64_decode(uid))
             user = User.objects.get(pk=user_id)

@@ -1,14 +1,25 @@
+import os
+from pathlib import Path
+
+from dotenv import load_dotenv
 import mysql.connector
 from mysql.connector import errorcode
 
+# Load environment variables from .env file
+load_dotenv(Path(__file__).resolve().parent / ".env")
+
 config = {
-    'user': 'root',
-    'password': '8uupvpR8%',
-    'host': '127.0.0.1',
-    'port': 3306,
+    'user': os.environ.get('MYSQL_USER', 'root'),
+    'password': os.environ.get('MYSQL_PASSWORD', ''),
+    'host': os.environ.get('MYSQL_HOST', '127.0.0.1'),
+    'port': int(os.environ.get('MYSQL_PORT', '3306')),
 }
 
-DB_NAME = 'sportsphere_db'
+DB_NAME = os.environ.get('MYSQL_DATABASE', 'sportsphere_db')
+
+if not config['password']:
+    print('Error: MYSQL_PASSWORD is not set in .env file')
+    raise SystemExit(1)
 
 try:
     cnx = mysql.connector.connect(**config)
@@ -23,3 +34,4 @@ except mysql.connector.Error as err:
     else:
         print(err)
     raise
+

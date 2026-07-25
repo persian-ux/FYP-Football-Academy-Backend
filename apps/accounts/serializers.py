@@ -18,21 +18,23 @@ class BaseResponseSerializer(serializers.Serializer):
 
 class RegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True, required=True)
-    password_confirm = serializers.CharField(write_only=True, required=True)
+    password2 = serializers.CharField(write_only=True, required=True)
+    first_name = serializers.CharField(required=False, allow_blank=True, max_length=150)
+    last_name = serializers.CharField(required=False, allow_blank=True, max_length=150)
 
     class Meta:
         model = User
-        fields = ["email", "password", "password_confirm", "phone", "role"]
+        fields = ["email", "password", "password2", "first_name", "last_name", "phone", "role"]
 
     def validate(self, attrs):
         email = validate_email_address(attrs.get("email", ""))
-        phone = validate_phone_number(attrs.get("phone", ""))
+        phone = validate_phone_number(attrs.get("phone", "")) if attrs.get("phone") else None
         role = validate_role(attrs.get("role", "player"))
         password = attrs.get("password")
-        password_confirm = attrs.get("password_confirm")
+        password2 = attrs.get("password2")
 
-        if password != password_confirm:
-            raise serializers.ValidationError({"password_confirm": ["Passwords do not match."]})
+        if password != password2:
+            raise serializers.ValidationError({"password2": ["Passwords do not match."]})
 
         try:
             validate_password_strength(password)
@@ -46,13 +48,16 @@ class RegisterSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         password = validated_data.pop("password")
-        validated_data.pop("password_confirm", None)
+        validated_data.pop("password2", None)
         user = User.objects.create_user(
             email=validated_data["email"],
             password=password,
             phone=validated_data.get("phone"),
             role=validated_data.get("role"),
         )
+        user.first_name = validated_data.get("first_name", "")
+        user.last_name = validated_data.get("last_name", "")
+        user.save(update_fields=["first_name", "last_name"])
         return user
 
 
@@ -80,14 +85,17 @@ class ChangePasswordSerializer(serializers.Serializer):
     old_password = serializers.CharField(required=True, write_only=True)
     new_password = serializers.CharField(required=True, write_only=True)
     confirm_password = serializers.CharField(required=True, write_only=True)
+    confirm_new_password = serializers.CharField(required=False, write_only=True, allow_blank=True)
 
     def validate(self, attrs):
         user = self.context["request"].user
         if not user.check_password(attrs.get("old_password")):
             raise serializers.ValidationError({"old_password": ["Current password is incorrect."]})
 
-        if attrs.get("new_password") != attrs.get("confirm_password"):
-            raise serializers.ValidationError({"confirm_password": ["Passwords do not match."]})
+        # Support both field names: confirm_password (backend) and confirm_new_password (frontend)
+        confirm = attrs.get("confirm_new_password") or attrs.get("confirm_password")
+        if attrs.get("new_password") != confirm:
+            raise serializers.ValidationError({"confirm_new_password": ["Passwords do not match."]})
 
         try:
             validate_password_strength(attrs.get("new_password"))
@@ -125,10 +133,13 @@ class ForgotPasswordSerializer(serializers.Serializer):
 class ResetPasswordSerializer(serializers.Serializer):
     password = serializers.CharField(required=True, write_only=True)
     password_confirm = serializers.CharField(required=True, write_only=True)
+    confirm_password = serializers.CharField(required=False, write_only=True, allow_blank=True)
 
     def validate(self, attrs):
-        if attrs.get("password") != attrs.get("password_confirm"):
-            raise serializers.ValidationError({"password_confirm": ["Passwords do not match."]})
+        # Support both field names: password_confirm (backend) and confirm_password (frontend)
+        confirm = attrs.get("confirm_password") or attrs.get("password_confirm")
+        if attrs.get("password") != confirm:
+            raise serializers.ValidationError({"confirm_password": ["Passwords do not match."]})
 
         try:
             validate_password_strength(attrs.get("password"))

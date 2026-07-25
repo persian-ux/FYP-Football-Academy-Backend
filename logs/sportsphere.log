@@ -40,3 +40,158 @@ INFO 2026-07-25 10:04:35,178 django.utils.autoreload D:\FYP\FYP-Football-Academy
 INFO 2026-07-25 10:04:36,024 django.utils.autoreload Watching for file changes with StatReloader
 INFO 2026-07-25 10:06:43,746 django.server "GET / HTTP/1.1" 200 50
 INFO 2026-07-25 10:09:16,789 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:10:33,781 django.server "OPTIONS /api/auth/register/ HTTP/1.1" 200 0
+INFO 2026-07-25 10:10:35,856 django.server "OPTIONS /api/auth/register/ HTTP/1.1" 200 0
+INFO 2026-07-25 10:14:17,990 django.server "OPTIONS /api/auth/register/ HTTP/1.1" 200 0
+INFO 2026-07-25 10:14:51,926 django.server "OPTIONS /api/auth/register/ HTTP/1.1" 200 0
+INFO 2026-07-25 10:20:38,872 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\config\settings.py changed, reloading.
+INFO 2026-07-25 10:20:39,655 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:20:48,224 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\config\settings.py changed, reloading.
+INFO 2026-07-25 10:20:49,155 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:22:07,028 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:23:28,361 django.server "OPTIONS /api/auth/register/ HTTP/1.1" 200 0
+INFO 2026-07-25 10:30:07,486 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\serializers.py changed, reloading.
+INFO 2026-07-25 10:30:08,498 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:31:54,380 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\serializers.py changed, reloading.
+INFO 2026-07-25 10:31:55,489 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:31:57,820 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\serializers.py changed, reloading.
+INFO 2026-07-25 10:31:58,763 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:32:33,042 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:32:33,912 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:32:35,135 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:32:35,873 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:32:37,077 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:32:37,825 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:32:39,053 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:32:39,822 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:32:41,029 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:32:41,778 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:32:44,102 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:32:44,872 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:32:47,094 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:32:47,771 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:32:49,168 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:32:49,948 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:32:52,294 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:32:52,983 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:32:54,343 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:32:55,090 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:32:57,300 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:32:57,998 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:33:03,505 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:33:04,183 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:33:06,402 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:33:07,134 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:33:08,374 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:33:09,149 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:33:11,381 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:33:12,162 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:33:15,427 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:33:16,082 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:33:18,294 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:33:18,980 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:33:23,222 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:33:23,954 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:33:25,135 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:33:25,882 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:33:28,084 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:33:28,797 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:33:29,986 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:33:30,638 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:33:33,841 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:33:34,560 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:33:35,737 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:33:36,441 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:33:37,604 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:33:38,300 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:33:40,488 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:33:41,204 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:33:42,535 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:33:43,220 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:33:45,416 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:33:46,263 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:33:48,490 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:33:49,186 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:33:50,367 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:33:51,038 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:33:54,265 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:33:54,977 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:33:57,360 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:33:58,035 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:34:01,408 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:34:02,147 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:34:03,309 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:34:04,061 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:34:05,246 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:34:05,931 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:34:09,177 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:34:09,845 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:34:12,041 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:34:12,768 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:34:13,954 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:34:14,632 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:34:15,816 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:34:16,508 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:34:18,713 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:34:19,416 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:34:20,582 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:34:21,266 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:34:24,505 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:34:25,175 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:34:27,365 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:34:28,036 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:34:30,226 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:34:30,895 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:34:35,291 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:34:36,001 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:34:39,252 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:34:39,956 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:34:42,313 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:34:42,993 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:34:47,231 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:34:48,015 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:34:50,247 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:34:50,957 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:34:52,127 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:34:52,795 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:34:54,994 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:34:55,710 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:34:58,922 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:34:59,631 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:35:00,832 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:35:01,497 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:35:02,694 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:35:03,351 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:35:05,568 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:35:06,233 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:35:10,499 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:35:11,144 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:35:13,360 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:35:14,167 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:35:15,346 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:35:16,033 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:35:17,214 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:35:17,889 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:35:20,118 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:35:20,772 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:35:28,090 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:35:28,812 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:35:32,055 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:35:32,920 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:35:38,197 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:35:38,952 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:35:40,171 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:35:40,881 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:35:42,076 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:35:42,727 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:35:44,931 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\api\v1\views.py changed, reloading.
+INFO 2026-07-25 10:35:45,631 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:40:21,689 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 10:41:22,420 django.server "OPTIONS /api/auth/login/ HTTP/1.1" 200 0
+WARNING 2026-07-25 10:41:23,559 django.request Bad Request: /api/auth/login/
+WARNING 2026-07-25 10:41:23,560 django.server "POST /api/auth/login/ HTTP/1.1" 400 51
+INFO 2026-07-25 10:41:58,112 django.server "OPTIONS /api/auth/register/ HTTP/1.1" 200 0
+WARNING 2026-07-25 10:41:58,192 django.request Bad Request: /api/auth/register/
+WARNING 2026-07-25 10:41:58,194 django.server "POST /api/auth/register/ HTTP/1.1" 400 45
+WARNING 2026-07-25 10:46:52,978 django.request Bad Request: /api/auth/login/
+WARNING 2026-07-25 10:46:52,979 django.server "POST /api/auth/login/ HTTP/1.1" 400 51

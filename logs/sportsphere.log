@@ -247,3 +247,256 @@ INFO 2026-07-25 16:29:36,069 django.server "POST /api/auth/register/ HTTP/1.1" 2
 INFO 2026-07-25 16:29:43,445 django.server "POST /api/auth/register/ HTTP/1.1" 201 791
 INFO 2026-07-25 16:31:12,341 django.server "OPTIONS /api/auth/login/ HTTP/1.1" 200 0
 INFO 2026-07-25 16:31:14,785 django.server "POST /api/auth/login/ HTTP/1.1" 200 751
+INFO 2026-07-25 18:25:21,562 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 18:28:25,853 django.server "OPTIONS /api/auth/login/ HTTP/1.1" 200 0
+WARNING 2026-07-25 18:28:27,055 django.request Bad Request: /api/auth/login/
+WARNING 2026-07-25 18:28:27,056 django.server "POST /api/auth/login/ HTTP/1.1" 400 51
+WARNING 2026-07-25 18:28:39,303 django.request Bad Request: /api/auth/login/
+WARNING 2026-07-25 18:28:39,304 django.server "POST /api/auth/login/ HTTP/1.1" 400 51
+INFO 2026-07-25 18:31:33,078 django.server "OPTIONS /api/auth/register/ HTTP/1.1" 200 0
+WARNING 2026-07-25 18:31:33,140 django.request Bad Request: /api/auth/register/
+WARNING 2026-07-25 18:31:33,142 django.server "POST /api/auth/register/ HTTP/1.1" 400 82
+WARNING 2026-07-25 18:32:33,075 django.request Bad Request: /api/auth/login/
+WARNING 2026-07-25 18:32:33,075 django.server "POST /api/auth/login/ HTTP/1.1" 400 51
+WARNING 2026-07-25 18:38:48,400 django.request Bad Request: /api/auth/login/
+WARNING 2026-07-25 18:38:48,402 django.server "POST /api/auth/login/ HTTP/1.1" 400 51
+WARNING 2026-07-25 18:39:37,395 django.request Bad Request: /api/auth/register/
+WARNING 2026-07-25 18:39:37,396 django.server "POST /api/auth/register/ HTTP/1.1" 400 151
+INFO 2026-07-25 18:41:27,338 django.utils.autoreload C:\Users\zainu\Desktop\FYP\FYP-Football-Academy-Backend\apps\accounts\serializers.py changed, reloading.
+INFO 2026-07-25 18:41:29,306 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 18:41:33,578 django.utils.autoreload C:\Users\zainu\Desktop\FYP\FYP-Football-Academy-Backend\apps\accounts\serializers.py changed, reloading.
+INFO 2026-07-25 18:41:35,016 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 18:41:39,999 django.utils.autoreload C:\Users\zainu\Desktop\FYP\FYP-Football-Academy-Backend\apps\accounts\serializers.py changed, reloading.
+INFO 2026-07-25 18:41:41,497 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 18:41:44,263 django.utils.autoreload C:\Users\zainu\Desktop\FYP\FYP-Football-Academy-Backend\apps\accounts\serializers.py changed, reloading.
+INFO 2026-07-25 18:41:46,119 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 18:41:50,241 django.utils.autoreload C:\Users\zainu\Desktop\FYP\FYP-Football-Academy-Backend\apps\accounts\serializers.py changed, reloading.
+INFO 2026-07-25 18:41:51,525 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 18:42:06,019 django.utils.autoreload C:\Users\zainu\Desktop\FYP\FYP-Football-Academy-Backend\apps\accounts\serializers.py changed, reloading.
+INFO 2026-07-25 18:42:07,640 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 18:42:18,249 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 18:42:33,690 django.utils.autoreload C:\Users\zainu\Desktop\FYP\FYP-Football-Academy-Backend\apps\accounts\serializers.py changed, reloading.
+INFO 2026-07-25 18:42:33,753 django.utils.autoreload C:\Users\zainu\Desktop\FYP\FYP-Football-Academy-Backend\apps\accounts\serializers.py changed, reloading.
+INFO 2026-07-25 18:42:35,921 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 18:42:35,952 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 18:42:50,611 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 18:44:12,826 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 18:44:38,396 django.utils.autoreload Watching for file changes with StatReloader
+WARNING 2026-07-25 18:44:56,014 django.request Method Not Allowed: /api/auth/register/
+WARNING 2026-07-25 18:44:56,016 django.server "GET /api/auth/register/ HTTP/1.1" 405 40
+WARNING 2026-07-25 18:44:56,364 django.request Not Found: /favicon.ico
+WARNING 2026-07-25 18:44:56,366 django.server "GET /favicon.ico HTTP/1.1" 404 5273
+WARNING 2026-07-25 18:45:27,786 django.request Bad Request: /api/auth/register/
+WARNING 2026-07-25 18:45:27,787 django.server "POST /api/auth/register/ HTTP/1.1" 400 50
+INFO 2026-07-25 18:45:40,704 django.server "POST /api/auth/register/ HTTP/1.1" 201 770
+INFO 2026-07-25 18:49:19,082 django.server "POST /api/auth/login/ HTTP/1.1" 200 747
+WARNING 2026-07-25 18:49:57,061 django.request Bad Request: /api/auth/register/
+WARNING 2026-07-25 18:49:57,062 django.server "POST /api/auth/register/ HTTP/1.1" 400 42
+WARNING 2026-07-25 18:50:09,922 django.request Bad Request: /api/auth/login/
+WARNING 2026-07-25 18:50:09,923 django.server "POST /api/auth/login/ HTTP/1.1" 400 51
+INFO 2026-07-25 18:53:07,541 django.utils.autoreload C:\Users\zainu\Desktop\FYP\FYP-Football-Academy-Backend\apps\accounts\serializers.py changed, reloading.
+INFO 2026-07-25 18:53:07,554 django.utils.autoreload C:\Users\zainu\Desktop\FYP\FYP-Football-Academy-Backend\apps\accounts\serializers.py changed, reloading.
+INFO 2026-07-25 18:53:09,626 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 18:53:09,676 django.utils.autoreload Watching for file changes with StatReloader
+WARNING 2026-07-25 18:53:30,734 django.request Bad Request: /api/auth/login/
+WARNING 2026-07-25 18:53:30,735 django.server "POST /api/auth/login/ HTTP/1.1" 400 51
+INFO 2026-07-25 18:54:27,855 django.server "POST /api/auth/register/ HTTP/1.1" 201 769
+INFO 2026-07-25 19:07:53,176 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-07-25 19:09:17,688 django.server "POST /api/auth/login/ HTTP/1.1" 200 739
+INFO 2026-07-25 19:10:26,022 django.server "POST /api/auth/login/ HTTP/1.1" 200 739
+INFO 2026-08-02 18:08:38,917 django.utils.autoreload C:\Users\zainu\Desktop\FYP\FYP-Football-Academy-Backend\config\settings.py changed, reloading.
+INFO 2026-08-02 18:08:41,767 django.utils.autoreload Watching for file changes with StatReloader
+WARNING 2026-08-02 18:11:06,490 django.request Forbidden: /api/v1/rbac/admin-only/
+WARNING 2026-08-02 18:11:06,494 django.request Forbidden: /api/v1/rbac/admin-only/
+WARNING 2026-08-02 18:11:06,499 django.request Forbidden: /api/v1/rbac/coach-only/
+WARNING 2026-08-02 18:11:06,518 django.request Forbidden: /api/v1/rbac/my-profile/
+WARNING 2026-08-02 18:11:06,524 django.request Forbidden: /api/v1/rbac/player-only/
+WARNING 2026-08-02 18:11:06,537 django.request Forbidden: /api/v1/rbac/staff-only/
+WARNING 2026-08-02 18:11:06,539 django.request Unauthorized: /api/v1/rbac/admin-only/
+WARNING 2026-08-02 18:11:06,555 django.request Forbidden: /api/v1/rbac/users/61/
+WARNING 2026-08-02 18:11:06,579 django.request Forbidden: /api/v1/rbac/users/
+WARNING 2026-08-02 18:13:12,047 django.request Forbidden: /api/v1/rbac/admin-only/
+WARNING 2026-08-02 18:13:12,051 django.request Forbidden: /api/v1/rbac/admin-only/
+WARNING 2026-08-02 18:13:12,053 django.request Forbidden: /api/v1/rbac/coach-only/
+WARNING 2026-08-02 18:13:12,071 django.request Forbidden: /api/v1/rbac/my-profile/
+WARNING 2026-08-02 18:13:12,080 django.request Forbidden: /api/v1/rbac/player-only/
+WARNING 2026-08-02 18:13:12,089 django.request Forbidden: /api/v1/rbac/staff-only/
+WARNING 2026-08-02 18:13:12,093 django.request Unauthorized: /api/v1/rbac/admin-only/
+WARNING 2026-08-02 18:13:12,107 django.request Forbidden: /api/v1/rbac/users/61/
+WARNING 2026-08-02 18:13:12,134 django.request Forbidden: /api/v1/rbac/users/
+ERROR 2026-08-02 18:15:41,553 django.security.DisallowedHost Invalid HTTP_HOST header: 'testserver'. You may need to add 'testserver' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\zainu\Desktop\FYP\FYP-Football-Academy-Backend\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\zainu\Desktop\FYP\FYP-Football-Academy-Backend\.venv\Lib\site-packages\django\utils\deprecation.py", line 308, in __call__
+    response = self.process_request(request)
+  File "C:\Users\zainu\Desktop\FYP\FYP-Football-Academy-Backend\.venv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "C:\Users\zainu\Desktop\FYP\FYP-Football-Academy-Backend\.venv\Lib\site-packages\django\http\request.py", line 206, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'testserver'. You may need to add 'testserver' to ALLOWED_HOSTS.
+WARNING 2026-08-02 18:19:41,728 django.request Forbidden: /api/v1/rbac/admin-only/
+WARNING 2026-08-02 18:19:41,731 django.request Forbidden: /api/v1/rbac/admin-only/
+WARNING 2026-08-02 18:19:41,734 django.request Forbidden: /api/v1/rbac/coach-only/
+WARNING 2026-08-02 18:19:41,749 django.request Forbidden: /api/v1/rbac/my-profile/
+WARNING 2026-08-02 18:19:41,756 django.request Forbidden: /api/v1/rbac/player-only/
+WARNING 2026-08-02 18:19:41,767 django.request Forbidden: /api/v1/rbac/staff-only/
+WARNING 2026-08-02 18:19:41,770 django.request Unauthorized: /api/v1/rbac/admin-only/
+WARNING 2026-08-02 18:19:41,784 django.request Forbidden: /api/v1/rbac/users/61/
+WARNING 2026-08-02 18:19:41,809 django.request Forbidden: /api/v1/rbac/users/
+WARNING 2026-08-02 18:22:27,828 django.request Forbidden: /api/v1/rbac/admin-only/
+WARNING 2026-08-02 18:22:27,832 django.request Forbidden: /api/v1/rbac/admin-only/
+WARNING 2026-08-02 18:22:27,836 django.request Forbidden: /api/v1/rbac/coach-only/
+WARNING 2026-08-02 18:22:27,860 django.request Forbidden: /api/v1/rbac/my-profile/
+WARNING 2026-08-02 18:22:27,874 django.request Forbidden: /api/v1/rbac/player-only/
+WARNING 2026-08-02 18:22:27,901 django.request Forbidden: /api/v1/rbac/staff-only/
+WARNING 2026-08-02 18:22:27,906 django.request Unauthorized: /api/v1/rbac/admin-only/
+WARNING 2026-08-02 18:22:27,939 django.request Forbidden: /api/v1/rbac/users/4/
+WARNING 2026-08-02 18:22:27,982 django.request Forbidden: /api/v1/rbac/users/
+WARNING 2026-08-02 18:24:16,426 django.request Forbidden: /api/v1/rbac/admin-only/
+WARNING 2026-08-02 18:24:16,430 django.request Forbidden: /api/v1/rbac/admin-only/
+WARNING 2026-08-02 18:24:16,434 django.request Forbidden: /api/v1/rbac/coach-only/
+WARNING 2026-08-02 18:24:16,444 django.request Forbidden: /api/v1/rbac/my-profile/
+WARNING 2026-08-02 18:24:16,450 django.request Forbidden: /api/v1/rbac/player-only/
+WARNING 2026-08-02 18:24:16,459 django.request Forbidden: /api/v1/rbac/staff-only/
+WARNING 2026-08-02 18:24:16,461 django.request Unauthorized: /api/v1/rbac/admin-only/
+WARNING 2026-08-02 18:24:16,473 django.request Forbidden: /api/v1/rbac/users/61/
+WARNING 2026-08-02 18:24:16,493 django.request Forbidden: /api/v1/rbac/users/
+WARNING 2026-08-02 18:27:51,310 django.request Forbidden: /api/v1/rbac/admin-only/
+WARNING 2026-08-02 18:27:51,314 django.request Forbidden: /api/v1/rbac/admin-only/
+WARNING 2026-08-02 18:27:51,318 django.request Forbidden: /api/v1/rbac/coach-only/
+WARNING 2026-08-02 18:27:51,335 django.request Forbidden: /api/v1/rbac/my-profile/
+WARNING 2026-08-02 18:27:51,343 django.request Forbidden: /api/v1/rbac/player-only/
+WARNING 2026-08-02 18:27:51,355 django.request Forbidden: /api/v1/rbac/staff-only/
+WARNING 2026-08-02 18:27:51,359 django.request Unauthorized: /api/v1/rbac/admin-only/
+WARNING 2026-08-02 18:27:51,382 django.request Forbidden: /api/v1/rbac/users/61/
+WARNING 2026-08-02 18:27:51,415 django.request Forbidden: /api/v1/rbac/users/
+WARNING 2026-08-02 18:34:12,494 django.request Forbidden: /api/v1/rbac/admin-only/
+WARNING 2026-08-02 18:34:12,498 django.request Forbidden: /api/v1/rbac/admin-only/
+WARNING 2026-08-02 18:34:12,501 django.request Forbidden: /api/v1/rbac/coach-only/
+WARNING 2026-08-02 18:34:12,517 django.request Forbidden: /api/v1/rbac/my-profile/
+WARNING 2026-08-02 18:34:12,526 django.request Forbidden: /api/v1/rbac/player-only/
+WARNING 2026-08-02 18:34:12,542 django.request Forbidden: /api/v1/rbac/staff-only/
+WARNING 2026-08-02 18:34:12,547 django.request Unauthorized: /api/v1/rbac/admin-only/
+WARNING 2026-08-02 18:34:12,568 django.request Forbidden: /api/v1/rbac/users/61/
+WARNING 2026-08-02 18:34:12,597 django.request Forbidden: /api/v1/rbac/users/
+INFO 2026-08-02 18:37:10,551 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-08-02 18:37:18,505 django.server "GET /api/auth/health/ HTTP/1.1" 200 35
+WARNING 2026-08-02 18:37:27,461 django.request Bad Request: /api/auth/register/
+WARNING 2026-08-02 18:37:27,462 django.server "POST /api/auth/register/ HTTP/1.1" 400 50
+INFO 2026-08-02 18:40:12,335 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-08-02 18:41:41,852 django.server "GET /api/auth/health/ HTTP/1.1" 200 35
+WARNING 2026-08-02 18:42:16,426 django.request Bad Request: /api/auth/register/
+WARNING 2026-08-02 18:42:16,427 django.server "POST /api/auth/register/ HTTP/1.1" 400 50
+WARNING 2026-08-02 18:42:38,153 django.request Bad Request: /api/auth/register/
+WARNING 2026-08-02 18:42:38,154 django.server "POST /api/auth/register/ HTTP/1.1" 400 59
+WARNING 2026-08-02 18:43:09,812 django.request Bad Request: /api/auth/register/
+WARNING 2026-08-02 18:43:09,813 django.server "POST /api/auth/register/ HTTP/1.1" 400 59
+WARNING 2026-08-02 18:43:43,416 django.request Bad Request: /api/auth/login/
+WARNING 2026-08-02 18:43:43,417 django.server "POST /api/auth/login/ HTTP/1.1" 400 51
+WARNING 2026-08-02 18:44:56,687 django.request Unauthorized: /api/auth/profile/
+WARNING 2026-08-02 18:44:56,687 django.server "GET /api/auth/profile/ HTTP/1.1" 401 58
+WARNING 2026-08-02 18:45:20,362 django.request Unauthorized: /api/auth/profile/
+WARNING 2026-08-02 18:45:20,363 django.server "PATCH /api/auth/profile/ HTTP/1.1" 401 58
+WARNING 2026-08-02 18:45:42,701 django.request Unauthorized: /api/auth/change-password/
+WARNING 2026-08-02 18:45:42,702 django.server "PATCH /api/auth/change-password/ HTTP/1.1" 401 58
+WARNING 2026-08-02 18:45:49,737 django.request Unauthorized: /api/auth/change-password/
+WARNING 2026-08-02 18:45:49,738 django.server "POST /api/auth/change-password/ HTTP/1.1" 401 58
+INFO 2026-08-02 18:47:13,360 django.server "GET /api/auth/health/ HTTP/1.1" 200 35
+WARNING 2026-08-02 18:48:48,086 django.request Bad Request: /api/auth/register/
+WARNING 2026-08-02 18:48:48,087 django.server "POST /api/auth/register/ HTTP/1.1" 400 48
+INFO 2026-08-02 18:50:03,308 django.server "POST /api/auth/register/ HTTP/1.1" 201 779
+WARNING 2026-08-02 18:56:12,800 django.request Unauthorized: /api/auth/profile/
+WARNING 2026-08-02 18:56:12,800 django.server "GET /api/auth/profile/ HTTP/1.1" 401 172
+WARNING 2026-08-02 18:56:55,577 django.request Unauthorized: /api/auth/profile/
+WARNING 2026-08-02 18:56:55,577 django.server "PATCH /api/auth/profile/ HTTP/1.1" 401 172
+INFO 2026-08-02 18:58:50,002 django.server "POST /api/auth/register/ HTTP/1.1" 201 781
+INFO 2026-08-02 18:58:55,987 django.server "POST /api/auth/login/ HTTP/1.1" 200 758
+INFO 2026-08-02 18:59:02,746 django.server "GET /api/auth/profile/ HTTP/1.1" 200 275
+INFO 2026-08-02 19:00:31,955 django.server "PATCH /api/auth/profile/ HTTP/1.1" 200 271
+WARNING 2026-08-02 19:01:36,446 django.request Bad Request: /api/auth/change-password/
+WARNING 2026-08-02 19:01:36,446 django.server "POST /api/auth/change-password/ HTTP/1.1" 400 87
+INFO 2026-08-02 19:02:04,309 django.server "POST /api/auth/logout/ HTTP/1.1" 200 101
+WARNING 2026-08-02 19:02:22,021 django.request Bad Request: /api/auth/refresh/
+WARNING 2026-08-02 19:02:22,022 django.server "POST /api/auth/refresh/ HTTP/1.1" 400 39
+WARNING 2026-08-02 19:03:25,993 django.request Not Found: /api/auth/api/v1/rbac/admin-only/
+WARNING 2026-08-02 19:03:25,994 django.server "GET /api/auth/api/v1/rbac/admin-only/ HTTP/1.1" 404 8642
+WARNING 2026-08-02 19:04:13,230 django.request Not Found: /api/auth/api/v1/rbac/coach-only/
+WARNING 2026-08-02 19:04:13,230 django.server "GET /api/auth/api/v1/rbac/coach-only/ HTTP/1.1" 404 8642
+WARNING 2026-08-02 19:04:27,809 django.request Not Found: /api/auth/api/v1/rbac/player-only/
+WARNING 2026-08-02 19:04:27,809 django.server "GET /api/auth/api/v1/rbac/player-only/ HTTP/1.1" 404 8645
+WARNING 2026-08-02 19:04:50,022 django.request Not Found: /api/auth/api/v1/rbac/my-profile/
+WARNING 2026-08-02 19:04:50,028 django.server "GET /api/auth/api/v1/rbac/my-profile/ HTTP/1.1" 404 8642
+WARNING 2026-08-02 19:05:29,656 django.request Not Found: /api/auth/api/v1/rbac/users/
+WARNING 2026-08-02 19:05:29,657 django.server "GET /api/auth/api/v1/rbac/users/ HTTP/1.1" 404 8627
+WARNING 2026-08-02 19:06:27,073 django.request Unauthorized: /api/v1/rbac/admin-only/
+WARNING 2026-08-02 19:06:27,073 django.server "GET /api/v1/rbac/admin-only/ HTTP/1.1" 401 58
+INFO 2026-08-02 19:06:48,453 django.server "POST /api/auth/register/ HTTP/1.1" 201 779
+INFO 2026-08-02 19:06:49,327 django.server "POST /api/auth/login/ HTTP/1.1" 200 756
+INFO 2026-08-02 19:06:49,364 django.server "GET /api/v1/rbac/admin-only/ HTTP/1.1" 200 1451
+WARNING 2026-08-02 19:08:29,213 django.request Forbidden: /api/v1/rbac/admin-only/
+WARNING 2026-08-02 19:08:29,214 django.server "GET /api/v1/rbac/admin-only/ HTTP/1.1" 403 67
+WARNING 2026-08-02 19:09:34,199 django.request Forbidden: /api/v1/rbac/coach-only/
+WARNING 2026-08-02 19:09:34,199 django.server "GET /api/v1/rbac/coach-only/ HTTP/1.1" 403 67
+INFO 2026-08-02 19:09:46,665 django.server "GET /api/v1/rbac/player-only/ HTTP/1.1" 200 109
+INFO 2026-08-02 19:10:07,958 django.server "GET /api/v1/rbac/my-profile/ HTTP/1.1" 200 255
+WARNING 2026-08-02 19:10:20,474 django.request Forbidden: /api/v1/rbac/staff-only/
+WARNING 2026-08-02 19:10:20,474 django.server "GET /api/v1/rbac/staff-only/ HTTP/1.1" 403 76
+WARNING 2026-08-02 19:10:33,341 django.request Forbidden: /api/v1/rbac/users/
+WARNING 2026-08-02 19:10:33,341 django.server "GET /api/v1/rbac/users/ HTTP/1.1" 403 76
+WARNING 2026-08-02 19:11:02,253 django.request Not Found: /api/v1/rbac/users/<id>/
+WARNING 2026-08-02 19:11:02,253 django.server "GET /api/v1/rbac/users/%3Cid%3E/ HTTP/1.1" 404 23
+INFO 2026-08-02 19:12:30,482 django.server "POST /api/auth/register/ HTTP/1.1" 201 780
+INFO 2026-08-02 19:12:31,230 django.server "POST /api/auth/login/ HTTP/1.1" 200 757
+INFO 2026-08-02 19:12:31,247 django.server "GET /api/v1/rbac/admin-only/ HTTP/1.1" 200 1630
+WARNING 2026-08-02 19:12:31,263 django.request Forbidden: /api/v1/rbac/coach-only/
+WARNING 2026-08-02 19:12:31,264 django.server "GET /api/v1/rbac/coach-only/ HTTP/1.1" 403 67
+WARNING 2026-08-02 19:12:31,307 django.request Forbidden: /api/v1/rbac/player-only/
+WARNING 2026-08-02 19:12:31,308 django.server "GET /api/v1/rbac/player-only/ HTTP/1.1" 403 68
+INFO 2026-08-02 19:12:31,327 django.server "GET /api/v1/rbac/staff-only/ HTTP/1.1" 200 107
+INFO 2026-08-02 19:12:32,059 django.server "POST /api/auth/register/ HTTP/1.1" 201 783
+INFO 2026-08-02 19:12:32,799 django.server "POST /api/auth/login/ HTTP/1.1" 200 760
+WARNING 2026-08-02 19:12:32,812 django.request Forbidden: /api/v1/rbac/admin-only/
+WARNING 2026-08-02 19:12:32,812 django.server "GET /api/v1/rbac/admin-only/ HTTP/1.1" 403 67
+INFO 2026-08-02 19:12:32,831 django.server "GET /api/v1/rbac/coach-only/ HTTP/1.1" 200 107
+WARNING 2026-08-02 19:12:32,844 django.request Forbidden: /api/v1/rbac/player-only/
+WARNING 2026-08-02 19:12:32,844 django.server "GET /api/v1/rbac/player-only/ HTTP/1.1" 403 68
+INFO 2026-08-02 19:12:32,862 django.server "GET /api/v1/rbac/staff-only/ HTTP/1.1" 200 107
+INFO 2026-08-02 19:12:33,614 django.server "POST /api/auth/register/ HTTP/1.1" 201 786
+INFO 2026-08-02 19:12:34,323 django.server "POST /api/auth/login/ HTTP/1.1" 200 763
+WARNING 2026-08-02 19:12:34,344 django.request Forbidden: /api/v1/rbac/admin-only/
+WARNING 2026-08-02 19:12:34,344 django.server "GET /api/v1/rbac/admin-only/ HTTP/1.1" 403 67
+WARNING 2026-08-02 19:12:34,367 django.request Forbidden: /api/v1/rbac/coach-only/
+WARNING 2026-08-02 19:12:34,367 django.server "GET /api/v1/rbac/coach-only/ HTTP/1.1" 403 67
+INFO 2026-08-02 19:12:34,386 django.server "GET /api/v1/rbac/player-only/ HTTP/1.1" 200 109
+WARNING 2026-08-02 19:12:34,401 django.request Forbidden: /api/v1/rbac/staff-only/
+WARNING 2026-08-02 19:12:34,401 django.server "GET /api/v1/rbac/staff-only/ HTTP/1.1" 403 76
+WARNING 2026-08-02 19:16:15,207 django.request Bad Request: /api/auth/login/
+WARNING 2026-08-02 19:16:15,208 django.server "POST /api/auth/login/ HTTP/1.1" 400 51
+INFO 2026-08-02 19:18:03,830 django.server "POST /api/auth/login/ HTTP/1.1" 200 739
+INFO 2026-08-02 19:19:51,156 django.server "GET /api/v1/rbac/admin-only/ HTTP/1.1" 200 1993
+WARNING 2026-08-02 19:20:18,705 django.request Forbidden: /api/v1/rbac/coach-only/
+WARNING 2026-08-02 19:20:18,706 django.server "GET /api/v1/rbac/coach-only/ HTTP/1.1" 403 67
+INFO 2026-08-02 19:23:19,698 django.server "OPTIONS /api/auth/login/ HTTP/1.1" 200 0
+INFO 2026-08-02 19:23:21,352 django.server "POST /api/auth/login/ HTTP/1.1" 200 739
+INFO 2026-08-03 20:38:53,733 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-08-03 20:39:41,778 django.server "OPTIONS /api/auth/login/ HTTP/1.1" 200 0
+INFO 2026-08-03 20:39:42,540 django.server "POST /api/auth/login/ HTTP/1.1" 200 737
+WARNING 2026-08-03 20:42:11,042 django.request Unauthorized: /api/v1/players/
+WARNING 2026-08-03 20:42:11,043 django.server "GET /api/v1/players/ HTTP/1.1" 401 172
+WARNING 2026-08-03 20:43:56,478 django.request Unauthorized: /api/v1/players/
+WARNING 2026-08-03 20:43:56,478 django.server "GET /api/v1/players/ HTTP/1.1" 401 172
+WARNING 2026-08-03 20:44:03,757 django.request Unauthorized: /api/v1/players/
+WARNING 2026-08-03 20:44:03,758 django.server "POST /api/v1/players/ HTTP/1.1" 401 172
+WARNING 2026-08-03 21:21:59,874 django.request Unauthorized: /api/v1/players/
+WARNING 2026-08-03 21:21:59,875 django.server "POST /api/v1/players/ HTTP/1.1" 401 58
+INFO 2026-08-03 21:24:16,593 django.server "POST /api/v1/accounts/login/ HTTP/1.1" 200 737
+WARNING 2026-08-03 21:26:40,544 django.request Bad Request: /api/v1/players/
+WARNING 2026-08-03 21:26:40,545 django.server "POST /api/v1/players/ HTTP/1.1" 400 137
+INFO 2026-08-03 21:31:31,807 django.server "POST /api/v1/accounts/register/ HTTP/1.1" 201 759
+INFO 2026-08-03 21:34:38,480 django.server "POST /api/v1/accounts/login/ HTTP/1.1" 200 737
+WARNING 2026-08-03 21:35:46,926 django.request Bad Request: /api/v1/players/
+WARNING 2026-08-03 21:35:46,926 django.server "POST /api/v1/players/ HTTP/1.1" 400 137
+INFO 2026-08-03 21:35:57,086 django.server "POST /api/v1/players/ HTTP/1.1" 201 780
+INFO 2026-08-03 21:36:20,131 django.server "GET /api/v1/players/ HTTP/1.1" 200 835
+INFO 2026-08-03 21:37:29,499 django.server "PATCH /api/v1/players/1/ HTTP/1.1" 200 789

@@ -38,9 +38,21 @@ class RegisterSerializer(serializers.ModelSerializer):
         ]
 
     def validate(self, attrs):
-        email = validate_email_address(attrs.get("email", ""))
-        phone = validate_phone_number(attrs.get("phone", "")) if attrs.get("phone") or attrs.get("phoneNumber") else None
-        role = validate_role(attrs.get("role", "player"))
+        try:
+            email = validate_email_address(attrs.get("email", ""))
+        except DjangoValidationError as exc:
+            raise serializers.ValidationError({"email": list(exc.messages)})
+        
+        try:
+            phone = validate_phone_number(attrs.get("phone", "")) if attrs.get("phone") or attrs.get("phoneNumber") else None
+        except DjangoValidationError as exc:
+            raise serializers.ValidationError({"phone": list(exc.messages)})
+        
+        try:
+            role = validate_role(attrs.get("role", "player"))
+        except DjangoValidationError as exc:
+            raise serializers.ValidationError({"role": list(exc.messages)})
+        
         password = attrs.get("password")
 
         # Support multiple field names for password confirmation:
@@ -92,7 +104,11 @@ class LoginSerializer(serializers.Serializer):
     password = serializers.CharField(write_only=True, required=True)
 
     def validate(self, attrs):
-        email = validate_email_address(attrs.get("email", ""))
+        try:
+            email = validate_email_address(attrs.get("email", ""))
+        except DjangoValidationError as exc:
+            raise serializers.ValidationError({"email": list(exc.messages)})
+        
         password = attrs.get("password")
         user = authenticate(request=self.context.get("request"), email=email, password=password)
 
@@ -143,17 +159,26 @@ class ProfileUpdateSerializer(serializers.ModelSerializer):
         fields = ["first_name", "last_name", "phone", "role", "avatar"]
 
     def validate_phone(self, value):
-        return validate_phone_number(value)
+        try:
+            return validate_phone_number(value)
+        except DjangoValidationError as exc:
+            raise serializers.ValidationError(list(exc.messages))
 
     def validate_role(self, value):
-        return validate_role(value)
+        try:
+            return validate_role(value)
+        except DjangoValidationError as exc:
+            raise serializers.ValidationError(list(exc.messages))
 
 
 class ForgotPasswordSerializer(serializers.Serializer):
     email = serializers.EmailField(required=True)
 
     def validate_email(self, value):
-        return validate_email_address(value)
+        try:
+            return validate_email_address(value)
+        except DjangoValidationError as exc:
+            raise serializers.ValidationError(list(exc.messages))
 
 
 class ResetPasswordSerializer(serializers.Serializer):

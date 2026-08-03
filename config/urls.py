@@ -2,12 +2,30 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
+from drf_spectacular.views import (
+    SpectacularAPIView,
+    SpectacularRedocView,
+    SpectacularSwaggerView,
+)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
+    path(
+        "api/docs/",
+        SpectacularSwaggerView.as_view(url_name="schema"),
+        name="swagger-ui",
+    ),
+    path(
+        "api/redoc/",
+        SpectacularRedocView.as_view(url_name="schema"),
+        name="redoc",
+    ),
     path("api/auth/", include("apps.accounts.urls")),
     path("api/v1/accounts/", include("apps.accounts.urls")),
+    path("api/v1/rbac/", include("apps.rbac.examples.urls")),
     path("api/v1/profiles/", include("apps.profiles.urls")),
+    path("api/v1/players/", include("apps.players.urls")),
     path("api/v1/academy/", include("apps.academy.urls")),
     path("api/v1/scheduling/", include("apps.scheduling.urls")),
     path("api/v1/attendance/", include("apps.attendance.urls")),

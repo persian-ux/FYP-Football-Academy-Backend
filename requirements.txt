@@ -4,5 +4,6 @@ mysql-connector-python
 djangorestframework
 django-cors-headers
 djangorestframework-simplejwt
+drf-spectacular
 Pillow
 python-dotenv

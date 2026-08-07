@@ -242,3 +242,7 @@ INFO 2026-07-25 16:29:36,069 django.server "POST /api/auth/register/ HTTP/1.1" 2
 INFO 2026-07-25 16:29:43,445 django.server "POST /api/auth/register/ HTTP/1.1" 201 791
 INFO 2026-07-25 16:31:12,341 django.server "OPTIONS /api/auth/login/ HTTP/1.1" 200 0
 INFO 2026-07-25 16:31:14,785 django.server "POST /api/auth/login/ HTTP/1.1" 200 751
+INFO 2026-08-07 09:27:11,354 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\config\settings.py changed, reloading.
+INFO 2026-08-07 09:27:12,299 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-08-07 09:28:13,120 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\config\settings.py changed, reloading.
+INFO 2026-08-07 09:28:13,901 django.utils.autoreload Watching for file changes with StatReloader

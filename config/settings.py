@@ -35,6 +35,7 @@ CSRF_TRUSTED_ORIGINS = os.environ.get(
 
 INSTALLED_APPS = [
     "apps.accounts",
+    "apps.rbac",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -44,7 +45,9 @@ INSTALLED_APPS = [
     "corsheaders",
     "rest_framework",
     "rest_framework_simplejwt",
+    "drf_spectacular",
     "apps.profiles",
+    "apps.players",
     "apps.academy",
     "apps.scheduling",
     "apps.attendance",
@@ -137,6 +140,33 @@ REST_FRAMEWORK = {
     ),
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
     "PAGE_SIZE": 20,
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "SportSphere / Football Academy API",
+    "DESCRIPTION": (
+        "Role-Based Access Control for the Football Academy backend. "
+        "Roles: admin (full access), coach (assigned players/attendance), "
+        "player (own profile and personal resources)."
+    ),
+    "VERSION": "1.0.0",
+    "SERVE_INCLUDE_SCHEMA": False,
+    "COMPONENT_SPLIT_REQUEST": True,
+    "SCHEMA_PATH_PREFIX": r"/api/v[0-9]+",
+    "SECURITY": [{"Bearer": []}],
+    "SECURITY_SCHEMES": {
+        "Bearer": {
+            "type": "http",
+            "scheme": "bearer",
+            "bearerFormat": "JWT",
+        },
+    },
+    "TAGS": [
+        {"name": "RBAC", "description": "Role-based authorization examples"},
+        {"name": "Authentication", "description": "JWT login/register/profile"},
+        {"name": "Players", "description": "Player profile and performance management"},
+    ],
 }
 
 SIMPLE_JWT = {

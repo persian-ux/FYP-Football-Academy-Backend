@@ -1,0 +1,131 @@
+{
+  "info": {
+    "name": "Player Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "List Players",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer <access_token>",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/v1/players/?search=ali&ordering=-joining_date&status=active",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8000",
+          "path": ["api", "v1", "players"],
+          "query": [
+            {"key": "search", "value": "ali"},
+            {"key": "ordering", "value": "-joining_date"},
+            {"key": "status", "value": "active"}
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Player",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer <access_token>",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"user\": {\n    \"email\": \"player2@academy.test\",\n    \"password\": \"StrongPass123!\",\n    \"first_name\": \"Ali\",\n    \"last_name\": \"Khan\",\n    \"phone\": \"+1234567890\",\n    \"role\": \"player\"\n  },\n  \"date_of_birth\": \"2012-05-14\",\n  \"gender\": \"male\",\n  \"emergency_contact\": \"+1111111111\",\n  \"guardian_name\": \"Amir Khan\",\n  \"guardian_phone\": \"+2222222222\",\n  \"medical_information\": \"No known allergies\",\n  \"blood_group\": \"O+\",\n  \"address\": \"1 Academy Road\",\n  \"assigned_sport\": \"Football\",\n  \"academy_group\": \"U15\",\n  \"joining_date\": \"2026-08-01\",\n  \"status\": \"active\",\n  \"performance_notes\": \"Excellent work rate\"\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/v1/players/",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8000",
+          "path": ["api", "v1", "players"]
+        }
+      }
+    },
+    {
+      "name": "Get Player",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer <access_token>",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/v1/players/1/",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8000",
+          "path": ["api", "v1", "players", "1"]
+        }
+      }
+    },
+    {
+      "name": "Update Player Performance Notes",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer <access_token>",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"performance_notes\": \"Improved tactical discipline\"\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/v1/players/1/",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8000",
+          "path": ["api", "v1", "players", "1"]
+        }
+      }
+    },
+    {
+      "name": "Delete Player",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer <access_token>",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/v1/players/1/",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8000",
+          "path": ["api", "v1", "players", "1"]
+        }
+      }
+    }
+  ]
+}

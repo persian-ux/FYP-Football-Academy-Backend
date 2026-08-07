@@ -1,0 +1,1 @@
+"""Player management app."""

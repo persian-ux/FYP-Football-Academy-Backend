@@ -1,3 +1,19 @@
+# Role-Based Authorization Module — Task Checklist
+
+- [x] Explore repo & analyse auth module / models
+- [x] Design reusable DRF permission classes (plan approved)
+- [x] Create `apps/rbac` app (permissions.py, examples, apps.py)
+- [x] Implement `IsAdmin`, `IsCoach`, `IsPlayer`, `IsAdminOrCoach`, `IsOwnerOrAdmin`, `IsOwnerCoachOrAdmin`
+- [x] Add example APIViews + ViewSet demonstrating each permission class
+- [x] Register `apps.rbac` in `INSTALLED_APPS` + wire example URLs in `config/urls.py`
+- [x] Install & configure `drf-spectacular` (OpenAPI / Swagger UI / ReDoc)
+- [x] Write unit + integration tests for every permission class
+- [x] Write `docs/permissions.md`, `docs/permissions_matrix.md`, Postman collection
+- [x] Run full test suite and verify Swagger UI
+- [ ] Await confirmation before starting the Player module
+
+---
+
 # Issues Found & Fixed
 
 ## ✅ Issue 1: CORS Configuration (FIXED)

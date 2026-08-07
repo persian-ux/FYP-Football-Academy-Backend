@@ -246,3 +246,7 @@ INFO 2026-08-07 09:27:11,354 django.utils.autoreload D:\FYP\FYP-Football-Academy
 INFO 2026-08-07 09:27:12,299 django.utils.autoreload Watching for file changes with StatReloader
 INFO 2026-08-07 09:28:13,120 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\config\settings.py changed, reloading.
 INFO 2026-08-07 09:28:13,901 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-08-07 09:29:07,799 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\serializers.py changed, reloading.
+INFO 2026-08-07 09:29:08,529 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2026-08-07 09:30:14,181 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\config\settings.py changed, reloading.
+INFO 2026-08-07 09:30:14,837 django.utils.autoreload Watching for file changes with StatReloader

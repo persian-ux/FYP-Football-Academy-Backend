@@ -198,11 +198,6 @@ WARNING 2026-07-25 10:46:52,979 django.server "POST /api/auth/login/ HTTP/1.1" 4
 INFO 2026-07-25 15:54:18,192 django.utils.autoreload Watching for file changes with StatReloader
 INFO 2026-07-25 16:00:10,456 django.server "OPTIONS /api/auth/register/ HTTP/1.1" 200 0
 WARNING 2026-07-25 16:00:10,699 django.request Bad Request: /api/auth/register/
-WARNING 2026-07-25 16:00:10,701 django.server "POST /api/auth/register/ HTTP/1.1" 400 114
-INFO 2026-07-25 16:07:50,764 django.utils.autoreload D:\FYP\FYP-Football-Academy-Backend\apps\accounts\serializers.py changed, reloading.
-INFO 2026-07-25 16:07:52,640 django.utils.autoreload Watching for file changes with StatReloader
-WARNING 2026-07-25 16:11:59,866 django.request Bad Request: /api/auth/register/
-WARNING 2026-07-25 16:11:59,867 django.server "POST /api/auth/register/ HTTP/1.1" 400 114
 INFO 2026-07-25 16:19:54,948 django.server "POST /api/auth/register/ HTTP/1.1" 201 758
 WARNING 2026-07-25 16:20:58,158 django.request Bad Request: /api/auth/register/
 WARNING 2026-07-25 16:20:58,159 django.server "POST /api/auth/register/ HTTP/1.1" 400 59

@@ -166,6 +166,8 @@ SPECTACULAR_SETTINGS = {
         {"name": "RBAC", "description": "Role-based authorization examples"},
         {"name": "Authentication", "description": "JWT login/register/profile"},
         {"name": "Players", "description": "Player profile and performance management"},
+        {"name": "Sections", "description": "Academy sections with coach and player assignments"},
+        {"name": "Academies", "description": "Academy management"},
     ],
 }
 

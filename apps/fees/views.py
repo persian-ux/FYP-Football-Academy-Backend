@@ -1,5 +1,6 @@
 from decimal import Decimal
 
+from django.contrib.auth import get_user_model
 from drf_spectacular.utils import extend_schema, extend_schema_view
 from rest_framework import filters, status, viewsets
 from rest_framework.decorators import action
@@ -11,6 +12,8 @@ from apps.players.models import Player
 from apps.rbac.permissions import IsAdmin
 from .models import FeeRecord
 from .serializers import FeeRecordSerializer
+
+User = get_user_model()
 
 
 @extend_schema_view(
@@ -104,18 +107,30 @@ class FeeRecordViewSet(viewsets.ModelViewSet):
 
     @action(detail=False, methods=["get"], url_path="students")
     def students(self, request, *args, **kwargs):
-        queryset = Player.objects.select_related("user").order_by("-id")
+        # All students = every player-role user. Students created through User
+        # Management or self-registration only create a User record (no Player
+        # profile), so querying the User model guarantees they are all listed.
+        users = (
+            User.objects.filter(role=User.Role.PLAYER)
+            .select_related("player_profile")
+            .order_by("-id")
+        )
         students = []
-        for player in queryset:
-            fee_record = player.fee_records.order_by("-created_at").first() if hasattr(player, "fee_records") else None
+        for user in users:
+            player = getattr(user, "player_profile", None)
+            if player is None:
+                # Fee records FK to a Player, so ensure a profile exists for
+                # every student so a fee can actually be assigned to them.
+                player, _ = Player.objects.get_or_create(user=user)
+            fee_record = player.fee_records.order_by("-created_at").first()
             students.append(
                 {
                     "id": player.pk,
                     "player_id": player.pk,
-                    "user_id": player.user_id,
-                    "student_name": player.user.get_full_name() or player.user.email,
-                    "email": player.user.email,
-                    "phone": player.user.phone,
+                    "user_id": user.pk,
+                    "student_name": user.get_full_name() or user.email,
+                    "email": user.email,
+                    "phone": user.phone,
                     "academy_group": player.academy_group,
                     "assigned_sport": player.assigned_sport,
                     "amount": str(fee_record.amount) if fee_record else "0.00",

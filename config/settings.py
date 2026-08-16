@@ -168,6 +168,8 @@ SPECTACULAR_SETTINGS = {
         {"name": "Players", "description": "Player profile and performance management"},
         {"name": "Sections", "description": "Academy sections with coach and player assignments"},
         {"name": "Academies", "description": "Academy management"},
+        {"name": "Teams", "description": "Academy teams participating in matches"},
+        {"name": "Matches", "description": "Match scheduling, results and events"},
     ],
 }
 

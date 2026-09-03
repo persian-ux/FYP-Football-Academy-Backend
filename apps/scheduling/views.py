@@ -1,4 +1,5 @@
 from django.utils import timezone
+from django.db import models
 from drf_spectacular.utils import extend_schema, extend_schema_view, inline_serializer
 from rest_framework import filters, serializers, status, viewsets
 from rest_framework.decorators import action
@@ -6,7 +7,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from apps.accounts.api.v1.responses import api_response
-from apps.rbac.permissions import IsAdmin
+from apps.rbac.permissions import IsAdmin, IsAdminOrCoach, is_admin, is_coach
 from .models import Match, Team
 from .serializers import (
     MatchCompleteSerializer,
@@ -34,9 +35,27 @@ class TeamViewSet(viewsets.ModelViewSet):
     ordering = ["name"]
 
     def get_permissions(self):
-        if self.action in {"create", "update", "partial_update", "destroy"}:
+        if self.action == "create":
             return [IsAdmin()]
+        if self.action in {"update", "partial_update", "destroy"}:
+            return [IsAdminOrCoach()]
         return [IsAuthenticated()]
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        if is_coach(self.request.user):
+            queryset = queryset.filter(coach=self.request.user)
+        return queryset
+
+    def perform_create(self, serializer):
+        if is_coach(self.request.user):
+            raise serializers.ValidationError("Coaches can only manage existing teams assigned to them.")
+        serializer.save()
+
+    def perform_update(self, serializer):
+        if is_coach(self.request.user) and serializer.validated_data.get("coach", self.get_object().coach) != self.request.user:
+            raise serializers.ValidationError("A coach cannot assign a team to another coach.")
+        serializer.save()
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
@@ -78,6 +97,14 @@ class TeamViewSet(viewsets.ModelViewSet):
         instance = self.get_object()
         serializer = self.get_serializer(instance, data=request.data, partial=partial)
         if serializer.is_valid():
+            if is_coach(request.user) and serializer.validated_data.get("coach", instance.coach) != request.user:
+                payload, status_code = api_response(
+                    "Team update failed.",
+                    errors={"coach": ["A coach cannot assign a team to another coach."]},
+                    success=False,
+                    status_code=status.HTTP_400_BAD_REQUEST,
+                )
+                return Response(payload, status=status_code)
             serializer.save()
             payload, status_code = api_response("Team updated successfully.", serializer.data, status_code=status.HTTP_200_OK)
             return Response(payload, status=status_code)
@@ -125,6 +152,12 @@ class MatchViewSet(viewsets.ModelViewSet):
         queryset = super().get_queryset()
         params = self.request.query_params
 
+        if is_coach(self.request.user):
+            queryset = queryset.filter(
+                models.Q(home_team__coach=self.request.user)
+                | models.Q(away_team__coach=self.request.user)
+            )
+
         team = params.get("team")
         if team:
             queryset = queryset.filter(home_team_id=team) | queryset.filter(away_team_id=team)
@@ -150,12 +183,30 @@ class MatchViewSet(viewsets.ModelViewSet):
             "cancel",
             "complete",
         }:
-            return [IsAdmin()]
+            return [IsAdminOrCoach()]
         return [IsAuthenticated()]
+
+    def _coach_can_manage_teams(self, home_team, away_team):
+        return is_admin(self.request.user) or (
+            home_team.coach_id == self.request.user.id or away_team.coach_id == self.request.user.id
+        )
+
+    def _validate_coach_teams(self, home_team, away_team):
+        if is_coach(self.request.user) and not self._coach_can_manage_teams(home_team, away_team):
+            raise serializers.ValidationError("A coach can only schedule matches involving their teams.")
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         if serializer.is_valid():
+            try:
+                self._validate_coach_teams(
+                    serializer.validated_data["home_team"], serializer.validated_data["away_team"]
+                )
+            except serializers.ValidationError as exc:
+                serializer._errors = {"detail": exc.detail}
+            if serializer.errors:
+                payload, status_code = api_response("Match creation failed.", errors=serializer.errors, success=False, status_code=status.HTTP_400_BAD_REQUEST)
+                return Response(payload, status=status_code)
             instance = MatchService.create_match(
                 home_team=serializer.validated_data["home_team"],
                 away_team=serializer.validated_data["away_team"],
@@ -200,6 +251,14 @@ class MatchViewSet(viewsets.ModelViewSet):
         instance = self.get_object()
         serializer = self.get_serializer(instance, data=request.data, partial=partial)
         if serializer.is_valid():
+            try:
+                self._validate_coach_teams(
+                    serializer.validated_data.get("home_team", instance.home_team),
+                    serializer.validated_data.get("away_team", instance.away_team),
+                )
+            except serializers.ValidationError as exc:
+                payload, status_code = api_response("Match update failed.", errors={"detail": exc.detail}, success=False, status_code=status.HTTP_400_BAD_REQUEST)
+                return Response(payload, status=status_code)
             instance = MatchService.update_match(instance, **serializer.validated_data)
             payload, status_code = api_response(
                 "Match updated successfully.",
@@ -292,7 +351,7 @@ class MatchViewSet(viewsets.ModelViewSet):
             },
         ),
     )
-    @action(detail=True, methods=["post"], permission_classes=[IsAdmin])
+    @action(detail=True, methods=["post"], permission_classes=[IsAdminOrCoach])
     def reschedule(self, request, pk=None):
         match = self.get_object()
         new_date = request.data.get("new_date")
@@ -334,7 +393,7 @@ class MatchViewSet(viewsets.ModelViewSet):
             },
         ),
     )
-    @action(detail=True, methods=["post"], permission_classes=[IsAdmin])
+    @action(detail=True, methods=["post"], permission_classes=[IsAdminOrCoach])
     def postpone(self, request, pk=None):
         match = self.get_object()
         new_date = request.data.get("new_date")
@@ -367,7 +426,7 @@ class MatchViewSet(viewsets.ModelViewSet):
             },
         ),
     )
-    @action(detail=True, methods=["post"], permission_classes=[IsAdmin])
+    @action(detail=True, methods=["post"], permission_classes=[IsAdminOrCoach])
     def cancel(self, request, pk=None):
         match = self.get_object()
         notes = request.data.get("notes")
@@ -397,7 +456,7 @@ class MatchViewSet(viewsets.ModelViewSet):
         ),
         request=MatchCompleteSerializer,
     )
-    @action(detail=True, methods=["post"], permission_classes=[IsAdmin])
+    @action(detail=True, methods=["post"], permission_classes=[IsAdminOrCoach])
     def complete(self, request, pk=None):
         match = self.get_object()
         serializer = MatchCompleteSerializer(data=request.data, context={"match": match})

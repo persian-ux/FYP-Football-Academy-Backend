@@ -1,6 +1,7 @@
 from datetime import date as date_cls
 
 from django.db import transaction
+from django.db import models
 from drf_spectacular.utils import extend_schema, extend_schema_view
 from rest_framework import filters, status, viewsets
 from rest_framework.permissions import IsAuthenticated
@@ -9,7 +10,7 @@ from rest_framework.views import APIView
 
 from apps.accounts.api.v1.responses import api_response
 from apps.accounts.models import User
-from apps.rbac.permissions import IsAdmin
+from apps.rbac.permissions import IsAdmin, IsAdminOrCoach, is_coach
 
 from .models import AttendanceRecord
 from .permissions import AttendanceAccessPermission
@@ -31,7 +32,7 @@ from .serializers import (
     destroy=extend_schema(tags=["Attendance"], summary="Delete attendance record"),
 )
 class AttendanceViewSet(viewsets.ModelViewSet):
-    """CRUD operations for attendance records (admin only for writes)."""
+    """CRUD operations for attendance records shared by admins and coaches."""
 
     queryset = AttendanceRecord.objects.select_related("user", "marked_by").all()
     serializer_class = AttendanceSerializer
@@ -48,6 +49,12 @@ class AttendanceViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         queryset = super().get_queryset()
+
+        if is_coach(self.request.user):
+            queryset = queryset.filter(
+                models.Q(user=self.request.user)
+                | models.Q(user__player_profile__assigned_coach=self.request.user)
+            )
 
         # Filter by date: ?date=YYYY-MM-DD
         date_param = self.request.query_params.get("date")
@@ -68,11 +75,11 @@ class AttendanceViewSet(viewsets.ModelViewSet):
 
     def get_permissions(self):
         if self.action in {"create", "update", "partial_update", "destroy"}:
-            return [IsAdmin()]
+            return [IsAdminOrCoach()]
         return [IsAuthenticated(), AttendanceAccessPermission()]
 
     def create(self, request, *args, **kwargs):
-        serializer = self.get_serializer(data=request.data)
+        serializer = self.get_serializer(data=request.data, context={"request": request})
         if serializer.is_valid():
             instance = serializer.save()
             payload, status_code = api_response(
@@ -113,7 +120,7 @@ class AttendanceViewSet(viewsets.ModelViewSet):
     def update(self, request, *args, **kwargs):
         partial = kwargs.pop("partial", False)
         instance = self.get_object()
-        serializer = self.get_serializer(instance, data=request.data, partial=partial)
+        serializer = self.get_serializer(instance, data=request.data, partial=partial, context={"request": request})
         if serializer.is_valid():
             serializer.save()
             payload, status_code = api_response(
@@ -155,7 +162,7 @@ class AttendanceViewSet(viewsets.ModelViewSet):
 class AttendanceRosterAPIView(APIView):
     """Load all students (players) and coaches to mark their attendance."""
 
-    permission_classes = [IsAdmin]
+    permission_classes = [IsAdminOrCoach]
 
     def get(self, request, *args, **kwargs):
         date_param = request.query_params.get("date")
@@ -170,7 +177,13 @@ class AttendanceRosterAPIView(APIView):
             )
             return Response(payload, status=status_code)
 
-        users = User.objects.filter(role__in=ATTENDANCE_ROLES, is_active=True).order_by(
+        users = User.objects.filter(role__in=ATTENDANCE_ROLES, is_active=True)
+        if is_coach(request.user):
+            users = users.filter(
+                models.Q(pk=request.user.pk)
+                | models.Q(player_profile__assigned_coach=request.user)
+            )
+        users = users.order_by(
             "role", "first_name", "last_name"
         )
 
@@ -215,10 +228,10 @@ class AttendanceRosterAPIView(APIView):
 class AttendanceBulkAPIView(APIView):
     """Bulk create/update attendance for multiple users on a single date."""
 
-    permission_classes = [IsAdmin]
+    permission_classes = [IsAdminOrCoach]
 
     def post(self, request, *args, **kwargs):
-        serializer = AttendanceBulkSerializer(data=request.data)
+        serializer = AttendanceBulkSerializer(data=request.data, context={"request": request})
         if not serializer.is_valid():
             payload, status_code = api_response(
                 "Bulk attendance failed.",
@@ -273,10 +286,10 @@ class AttendanceBulkAPIView(APIView):
 class AttendanceToggleAPIView(APIView):
     """Toggle a user's attendance between present and absent."""
 
-    permission_classes = [IsAdmin]
+    permission_classes = [IsAdminOrCoach]
 
     def post(self, request, *args, **kwargs):
-        serializer = AttendanceToggleSerializer(data=request.data)
+        serializer = AttendanceToggleSerializer(data=request.data, context={"request": request})
         if not serializer.is_valid():
             payload, status_code = api_response(
                 "Attendance toggle failed.",

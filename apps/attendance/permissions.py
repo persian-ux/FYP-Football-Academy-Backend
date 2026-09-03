@@ -1,4 +1,4 @@
-from rest_framework.permissions import BasePermission, SAFE_METHODS
+from rest_framework.permissions import BasePermission
 
 from apps.rbac.permissions import is_admin, is_coach
 
@@ -7,7 +7,7 @@ class AttendanceAccessPermission(BasePermission):
     """
     Attendance access rules:
       - Admin: full access (read + write).
-      - Coach: read-only access to attendance records.
+    - Coach: access to their own and assigned players' records.
       - Player: no access to the attendance management endpoints.
     """
 
@@ -22,6 +22,6 @@ class AttendanceAccessPermission(BasePermission):
             return True
 
         if is_coach(user):
-            return request.method in SAFE_METHODS
+            return True
 
         return False

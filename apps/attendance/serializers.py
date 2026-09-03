@@ -39,6 +39,12 @@ class AttendanceSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError(
                 _("Attendance can only be marked for players and coaches.")
             )
+        request = self.context.get("request")
+        if request and request.user.role == User.Role.COACH:
+            player_profile = getattr(value, "player_profile", None)
+            is_assigned_player = value.role == User.Role.PLAYER and player_profile is not None and player_profile.assigned_coach_id == request.user.id
+            if value != request.user and not is_assigned_player:
+                raise serializers.ValidationError(_("You can only manage your own or assigned players' attendance."))
         return value
 
     def validate_status(self, value):
@@ -88,6 +94,17 @@ class AttendanceBulkSerializer(serializers.Serializer):
     date = serializers.DateField()
     records = AttendanceBulkItemSerializer(many=True, allow_empty=False)
 
+    def validate_records(self, value):
+        request = self.context.get("request")
+        if request and request.user.role == User.Role.COACH:
+            for item in value:
+                user = item["user"]
+                player_profile = getattr(user, "player_profile", None)
+                is_assigned_player = user.role == User.Role.PLAYER and player_profile is not None and player_profile.assigned_coach_id == request.user.id
+                if user != request.user and not is_assigned_player:
+                    raise serializers.ValidationError(_("You can only manage your own or assigned players' attendance."))
+        return value
+
 
 class AttendanceToggleSerializer(serializers.Serializer):
     """Toggle a single user's attendance between present and absent."""
@@ -96,3 +113,12 @@ class AttendanceToggleSerializer(serializers.Serializer):
         queryset=User.objects.filter(role__in=ATTENDANCE_ROLES)
     )
     date = serializers.DateField()
+
+    def validate_user(self, value):
+        request = self.context.get("request")
+        if request and request.user.role == User.Role.COACH:
+            player_profile = getattr(value, "player_profile", None)
+            is_assigned_player = value.role == User.Role.PLAYER and player_profile is not None and player_profile.assigned_coach_id == request.user.id
+            if value != request.user and not is_assigned_player:
+                raise serializers.ValidationError(_("You can only manage your own or assigned players' attendance."))
+        return value

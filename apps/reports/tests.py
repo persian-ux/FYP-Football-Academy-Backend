@@ -121,14 +121,14 @@ class StudentReportAPITests(StudentReportBaseTestCase):
         self.assertEqual(report.red_cards, 0)
         self.assertEqual(report.created_by, self.admin)
 
-    def test_coach_cannot_create_student_report(self):
+    def test_coach_can_create_student_report_for_assigned_player(self):
         self._auth(self.coach)
         response = self.client.post(
             self.report_list_url,
             {"player": self.player.id, "goals": 1},
             format="json",
         )
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
     def test_player_cannot_create_student_report(self):
         self._auth(self.player_user)

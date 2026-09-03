@@ -27,7 +27,7 @@ class MatchSchedulingBaseTestCase(APITestCase):
             role=User.Role.PLAYER,
         )
 
-        self.team_a = Team.objects.create(name="Team A", short_code="TA")
+        self.team_a = Team.objects.create(name="Team A", short_code="TA", coach=self.coach)
         self.team_b = Team.objects.create(name="Team B", short_code="TB")
         self.team_c = Team.objects.create(name="Team C", short_code="TC")
 
@@ -102,7 +102,7 @@ class MatchAPITests(MatchSchedulingBaseTestCase):
         self.assertTrue(response.json()["success"])
         self.assertEqual(Match.objects.count(), 1)
 
-    def test_coach_cannot_create_match(self):
+    def test_coach_can_create_match_for_coached_team(self):
         self._auth(self.coach)
         response = self.client.post(
             self.match_list_url,
@@ -114,7 +114,7 @@ class MatchAPITests(MatchSchedulingBaseTestCase):
             },
             format="json",
         )
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
     def test_player_cannot_create_match(self):
         self._auth(self.player)
@@ -255,7 +255,7 @@ class MatchResultAPITests(MatchSchedulingBaseTestCase):
         # Winner is always auto-calculated, client cannot override
         self.assertEqual(match.result.winner, MatchResult.Winner.HOME)
 
-    def test_coach_cannot_complete_match(self):
+    def test_coach_can_complete_coached_match(self):
         match = self._create_match(self.team_a, self.team_b)
         self._auth(self.coach)
         response = self.client.post(
@@ -263,7 +263,7 @@ class MatchResultAPITests(MatchSchedulingBaseTestCase):
             {"home_score": 1, "away_score": 0, "duration_minutes": 90},
             format="json",
         )
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_player_cannot_complete_match(self):
         match = self._create_match(self.team_a, self.team_b)
@@ -392,7 +392,7 @@ class MatchLifecycleAPITests(MatchSchedulingBaseTestCase):
         match.refresh_from_db()
         self.assertEqual(match.status, Match.Status.CANCELLED)
 
-    def test_coach_cannot_reschedule_match(self):
+    def test_coach_can_reschedule_coached_match(self):
         match = self._create_match(self.team_a, self.team_b)
         self._auth(self.coach)
         response = self.client.post(
@@ -400,7 +400,7 @@ class MatchLifecycleAPITests(MatchSchedulingBaseTestCase):
             {"new_date": (timezone.now() + timedelta(days=5)).isoformat()},
             format="json",
         )
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_player_cannot_cancel_match(self):
         match = self._create_match(self.team_a, self.team_b)

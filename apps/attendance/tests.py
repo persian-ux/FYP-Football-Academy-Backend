@@ -5,6 +5,7 @@ from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APIClient
 
+from apps.players.models import Player
 from .models import AttendanceRecord
 
 User = get_user_model()
@@ -26,6 +27,8 @@ class AttendanceAPITestCase(TestCase):
         self.player2 = User.objects.create_user(  # type: ignore[call-arg]
             email="player2@test.com", password="pass12345", role=User.Role.PLAYER  # type: ignore[attr-defined]
         )
+        Player.objects.create(user=self.player, assigned_coach=self.coach)
+        Player.objects.create(user=self.player2, assigned_coach=self.coach)
 
         self.admin_client = APIClient()
         self.admin_client.force_authenticate(user=self.admin)
@@ -60,9 +63,10 @@ class AttendanceAPITestCase(TestCase):
         resp = self.admin_client.get(self.roster_url, {"date": "invalid"})
         self.assertEqual(resp.status_code, status.HTTP_400_BAD_REQUEST)
 
-    def test_roster_coach_forbidden(self):
+    def test_roster_coach_allowed_for_assigned_players(self):
         resp = self.coach_client.get(self.roster_url)
-        self.assertEqual(resp.status_code, status.HTTP_403_FORBIDDEN)
+        self.assertEqual(resp.status_code, status.HTTP_200_OK)
+        self.assertEqual(resp.json()["data"]["count"], 3)
 
     def test_roster_player_forbidden(self):
         resp = self.player_client.get(self.roster_url)
@@ -115,13 +119,13 @@ class AttendanceAPITestCase(TestCase):
         resp = self.admin_client.post(self.bulk_url, payload, format="json")
         self.assertEqual(resp.status_code, status.HTTP_400_BAD_REQUEST)
 
-    def test_bulk_coach_forbidden(self):
+    def test_bulk_coach_allowed_for_assigned_player(self):
         payload = {
             "date": "2026-08-13",
             "records": [{"user": self.player.id, "status": "present"}],
         }
         resp = self.coach_client.post(self.bulk_url, payload, format="json")
-        self.assertEqual(resp.status_code, status.HTTP_403_FORBIDDEN)
+        self.assertEqual(resp.status_code, status.HTTP_200_OK)
 
     # ------------------------------------------------------------------
     # Toggle endpoint
@@ -143,11 +147,11 @@ class AttendanceAPITestCase(TestCase):
         self.assertEqual(resp.status_code, status.HTTP_200_OK)
         self.assertEqual(resp.json()["data"]["status"], "absent")
 
-    def test_toggle_coach_forbidden(self):
+    def test_toggle_coach_allowed_for_assigned_player(self):
         resp = self.coach_client.post(
             self.toggle_url, {"user": self.player.id, "date": "2026-08-13"}, format="json"
         )
-        self.assertEqual(resp.status_code, status.HTTP_403_FORBIDDEN)
+        self.assertEqual(resp.status_code, status.HTTP_200_OK)
 
     # ------------------------------------------------------------------
     # CRUD endpoints
@@ -176,10 +180,10 @@ class AttendanceAPITestCase(TestCase):
         resp = self.admin_client.post(self.records_url, payload, format="json")
         self.assertEqual(resp.status_code, status.HTTP_400_BAD_REQUEST)
 
-    def test_record_create_coach_forbidden(self):
+    def test_record_create_coach_allowed_for_assigned_player(self):
         payload = {"user": self.player.id, "date": "2026-08-15", "status": "present"}
         resp = self.coach_client.post(self.records_url, payload, format="json")
-        self.assertEqual(resp.status_code, status.HTTP_403_FORBIDDEN)
+        self.assertEqual(resp.status_code, status.HTTP_201_CREATED)
 
     def test_record_retrieve_admin(self):
         record = AttendanceRecord.objects.create(
@@ -198,14 +202,14 @@ class AttendanceAPITestCase(TestCase):
         self.assertEqual(resp.status_code, status.HTTP_200_OK)
         self.assertEqual(resp.json()["data"]["status"], "late")
 
-    def test_record_update_coach_forbidden(self):
+    def test_record_update_coach_allowed_for_assigned_player(self):
         record = AttendanceRecord.objects.create(
             user=self.player, date="2026-08-15", status="present", marked_by=self.admin
         )
         resp = self.coach_client.patch(
             reverse("attendance-record-detail", args=[record.id]), {"status": "late"}, format="json"
         )
-        self.assertEqual(resp.status_code, status.HTTP_403_FORBIDDEN)
+        self.assertEqual(resp.status_code, status.HTTP_200_OK)
 
     def test_record_delete_admin(self):
         record = AttendanceRecord.objects.create(
@@ -214,12 +218,12 @@ class AttendanceAPITestCase(TestCase):
         resp = self.admin_client.delete(reverse("attendance-record-detail", args=[record.id]))
         self.assertEqual(resp.status_code, status.HTTP_204_NO_CONTENT)
 
-    def test_record_delete_coach_forbidden(self):
+    def test_record_delete_coach_allowed_for_assigned_player(self):
         record = AttendanceRecord.objects.create(
             user=self.player, date="2026-08-15", status="present", marked_by=self.admin
         )
         resp = self.coach_client.delete(reverse("attendance-record-detail", args=[record.id]))
-        self.assertEqual(resp.status_code, status.HTTP_403_FORBIDDEN)
+        self.assertEqual(resp.status_code, status.HTTP_204_NO_CONTENT)
 
     def test_record_list_unauthenticated(self):
         anon = APIClient()

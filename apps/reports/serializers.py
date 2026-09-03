@@ -108,6 +108,12 @@ class StudentReportSerializer(serializers.ModelSerializer):
         validated_data["created_by"] = request.user if request else None
         return super().create(validated_data)
 
+    def validate_player(self, value):
+        request = self.context.get("request")
+        if request and request.user.role == User.Role.COACH and value.assigned_coach_id != request.user.id:
+            raise serializers.ValidationError("You can only create reports for players assigned to you.")
+        return value
+
     def validate_rating(self, value):
         if value is not None and (value < 0 or value > 10):
             raise serializers.ValidationError("Rating must be between 0 and 10.")

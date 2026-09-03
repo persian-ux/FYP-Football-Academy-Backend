@@ -6,7 +6,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from apps.accounts.api.v1.responses import api_response
-from apps.rbac.permissions import IsAdmin
+from apps.rbac.permissions import IsAdminOrCoach, is_coach
 from .models import StudentReport
 from .serializers import StudentReportSerializer
 
@@ -56,6 +56,9 @@ class StudentReportViewSet(viewsets.ModelViewSet):
         queryset = super().get_queryset()
         params = self.request.query_params
 
+        if is_coach(self.request.user):
+            queryset = queryset.filter(player__assigned_coach=self.request.user)
+
         player = params.get("player")
         if player:
             queryset = queryset.filter(player_id=player)
@@ -68,7 +71,7 @@ class StudentReportViewSet(viewsets.ModelViewSet):
 
     def get_permissions(self):
         if self.action in {"create", "update", "partial_update", "destroy"}:
-            return [IsAdmin()]
+            return [IsAdminOrCoach()]
         return [IsAuthenticated()]
 
     def create(self, request, *args, **kwargs):
